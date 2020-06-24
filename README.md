@@ -1,2 +1,2 @@
-# cross-game-chat
-Encrypted cross-game chat with an inviting feature.
+# Cross-Game Chat
+Encrypted websocket cross-game chat with an inviting feature.
