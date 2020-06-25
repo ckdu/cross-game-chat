@@ -10,6 +10,10 @@ Encrypted websocket cross-game chat with an invite-to-server feature. Only works
 - **Roles and colors.**
 - **Toggable rainbow chat.**
 
+## Showcase
+#### Click below to watch on YouTube
+[![Showcase](https://i.imgur.com/bWxjAZz.png)](https://www.youtube.com/watch?v=svyqZINPZ54 "Showcase")
+
 ## How to test it:
 1. Load `demo.lua` in your editor.
 2. Change your color/role settings as you'd like.
