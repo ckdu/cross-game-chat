@@ -1,6 +1,15 @@
 # Cross-Game Chat
 Encrypted websocket cross-game chat with an invite-to-server feature. Only works on Synapse X.
 
+## Features
+- **In-line:** No annoying external GUI's. The messages appear in the default chat.
+- **Uses websocket:** for more efficiency, faster bidirectional data transmitting, instead of having to constantly request the server.
+- **Client-sided encryption:** As long as you don't share the encryption key, no one can see the messages being transmitted, not even the server, as everything is encrypted on the client, and decrypted on other clients.
+- **Anti message logging:** The messages you send are never transmitted to people in the same game server. Meaning those with message loggers (.Chatted) will not be able to see your messages.
+- **Anti lua injection:** Security measure to prevent people from injecting lua code with their messages.
+- **Roles and colors.**
+- **Toggable rainbow chat.**
+
 ## How to test it:
 1. Load `demo.lua` in your editor.
 2. Change your color/role settings as you'd like.
