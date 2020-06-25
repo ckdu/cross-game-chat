@@ -1,4 +1,4 @@
--- Don't share the URL/Encryption key with unauthorized users.
+-- Don't share your custom URL/Encryption key with unauthorized users.
 getgenv().WS_URL = "ws://aim.red:33850"
 getgenv().ENCRYPTION_KEY = "cZsjReVwG48ADvjf7rUkGb8LzJPsC2P#"
 -- Everyone in the chat must have the same values above ^
