@@ -2,6 +2,7 @@
 Encrypted websocket cross-game chat with an invite-to-server feature. Only works on Synapse X.
 
 ## Features
+- **Server inviting/joining:** You can easily invite people to join your game server.
 - **In-line:** No annoying external GUI's. The messages appear in the default chat.
 - **Uses websocket:** For more efficiency, faster bidirectional data transmitting, instead of having to constantly request the server.
 - **Client-sided encryption:** As long as you don't share the encryption key, no one can see the messages being transmitted, not even the server, as everything is encrypted on the client, and decrypted on other clients.
