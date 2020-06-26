@@ -10,22 +10,12 @@ end
 
 if not syn_checkcaller and not PROTOSMASHER_LOADED then error'Unsupported exploit.' end
 
-local iv = "h369ZWd@S2Y5U%Z!"
-
-function encrypt(msg)
-	if syn_checkcaller then
-		return syn.crypt.custom.encrypt("aes-cbc", msg, ENCRYPTION_KEY, iv)
-	elseif PROTOSMASHER_LOADED then
-		return AES.Encrypt(msg, ENCRYPTION_KEY, iv)
-	end
-end
-
-function decrypt(msg)
-	if syn_checkcaller then
-		return syn.crypt.custom.decrypt("aes-cbc", msg, ENCRYPTION_KEY, iv)
-	elseif PROTOSMASHER_LOADED then
-		return AES.Decrypt(msg, ENCRYPTION_KEY, iv)
-	end
+if cross_settings then
+	myRoles = cross_settings.myRoles
+	myColor = cross_settings.myColor
+	RGB_ENABLED = cross_settings.RGB_ENABLED
+	WS_URL = cross_settings.WS_URL
+	ENCRYPTION_KEY = cross_settings.ENCRYPTION_KEY
 end
 
 if not WS_URL then error'Set the required global variables.' end
@@ -51,6 +41,24 @@ sendProperties = {
 	Font = Enum.Font.SourceSansBold;
 	TextSize = 18;
 }
+
+local iv = "h369ZWd@S2Y5U%Z!"
+
+function encrypt(msg)
+	if syn_checkcaller then
+		return syn.crypt.custom.encrypt("aes-cbc", msg, ENCRYPTION_KEY, iv)
+	elseif PROTOSMASHER_LOADED then
+		return AES.Encrypt(msg, ENCRYPTION_KEY, iv)
+	end
+end
+
+function decrypt(msg)
+	if syn_checkcaller then
+		return syn.crypt.custom.decrypt("aes-cbc", msg, ENCRYPTION_KEY, iv)
+	elseif PROTOSMASHER_LOADED then
+		return AES.Decrypt(msg, ENCRYPTION_KEY, iv)
+	end
+end
 
 function toTable(s)
 	if not s:find '^%s*{' then return nil end
