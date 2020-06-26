@@ -1,5 +1,5 @@
 # Cross-Game Chat
-Encrypted websocket cross-game chat with an invite-to-server feature. Only works on Synapse X.
+Encrypted websocket cross-game chat with an invite-to-server feature. Only works on Synapse X and Protosmasher for now.
 
 ## Features
 - **Server inviting/joining:** You can easily invite people to join your game server.
