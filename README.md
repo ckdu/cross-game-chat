@@ -5,7 +5,7 @@ Encrypted websocket cross-game chat with an invite-to-server feature. Only works
 - **Server inviting/joining:** You can easily invite people to join your game server.
 - **In-line:** No annoying external GUI's. The messages appear in the default chat.
 - **Uses websocket:** For more efficiency, faster bidirectional data transmitting, instead of having to constantly request the server.
-- **Client-sided encryption:** As long as you don't share the encryption key, no one can see the messages being transmitted, not even the server, as everything is encrypted on the client, and decrypted on other clients.
+- **Client-sided AES-256 encryption:** As long as you don't share the encryption key, no one can see the messages being transmitted, not even the server, as everything is encrypted on the client, and decrypted on other clients.
 - **Anti message logging:** The messages you send are never transmitted to the game server. Meaning those with message loggers (.Chatted) will not be able to see your messages.
 - **Anti lua injection:** Security measure to prevent people from injecting lua code with their messages.
 - **Roles and colors.**
@@ -42,8 +42,8 @@ To join an invite you received, chat "!join".
 #### Client Setup
 1. Open `demo.lua`.
 2. Replace the value for `getgenv().WS_URL` with `"ws://YOUR_URL_OR_VPS_IP_HERE:YOUR_PORT"`. The default port, if you didn't edit it, is `17584`.
-3. Generate or enter a strong encryption key, and set it as the value of getgenv().ENCRYPTION_KEY. This is like a password that you share with authenticated users.
-4. Save the file and share it to whoever you want in your chat. Other users may edit the other settings as they'd like.
+3. Generate or enter a strong encryption key, and set it as the value for `getgenv().ENCRYPTION_KEY`. This is a password that you share with authorized users.
+4. Save the file and share it to whoever you want in your chat. Users may edit the other settings as they'd like.
 
 ## Credits
 	Main Script: Aim
