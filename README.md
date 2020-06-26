@@ -8,6 +8,7 @@ Encrypted websocket cross-game chat with an invite-to-server feature. Only works
 - **Client-sided AES-256 encryption:** As long as you don't share the encryption key, no one can see the messages being transmitted, not even the server, as everything is encrypted on the client, and decrypted on other clients.
 - **Anti message logging:** The messages you send are never transmitted to the game server. Meaning those with message loggers (.Chatted) will not be able to see your messages.
 - **Anti lua injection:** Security measure to prevent people from injecting lua code with their messages.
+- **Rate limiting:** Spam prevention. Maximum 1 connection per ip, 10 messages per 5 seconds.
 - **Roles and colors.**
 - **Toggable rainbow chat.**
 
@@ -37,11 +38,11 @@ To join an invite you received, chat "!join".
 6. [Optional] `cd` to a directory where you'd like to install the server app.
 7. Run `wget https://raw.githubusercontent.com/xxaim/cross-game-chat/master/server.js`.
 8. [Optional] Run `nano server.js` and edit the port.
-9. Run `npm install ws http`.
+9. Run `npm install ws ws-rate-limit http`.
 10. Run `nohup node server.js &`, and close your SSH connection.
 #### Client Setup
 1. Open `demo.lua`.
-2. Replace the value for `getgenv().WS_URL` with `"ws://YOUR_URL_OR_VPS_IP_HERE:YOUR_PORT"`. The default port, if you didn't edit it, is `17584`.
+2. Replace the value for `getgenv().WS_URL` with `"ws://YOUR_URL_OR_VPS_IP_HERE:YOUR_PORT"`. The default port, if you didn't edit it, is `33850`.
 3. Generate or enter a strong encryption key, and set it as the value for `getgenv().ENCRYPTION_KEY`. This is a password that you share with authorized users.
 4. Save the file and share it to whoever you want in your chat. Users may edit the other settings as they'd like.
 
