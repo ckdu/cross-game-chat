@@ -139,11 +139,12 @@ local lastmessage = {}
 local received = function(msg)
 	lastmessage = getMessage(msg)
 	if not lastmessage then return end
-	if type(lastmessage) == "string" then
+	getProperties.Text = (type(lastmessage) == "string" and "Connected" or construct(lastmessage))
+	--[[if type(lastmessage) == "string" then
 		getProperties.Text = "Connected"
 	else
 		getProperties.Text = construct(lastmessage)
-	end
+	end]]
 	StarterGui:SetCore("ChatMakeSystemMessage", getProperties)
 end
 if syn_checkcaller then
@@ -164,11 +165,11 @@ scroller.ChildAdded:Connect(function(frame)
 			if frame.TextLabel.Text == construct(lastmessage) then
 				if lastmessage.Roles[1] == "RGB" then
 					spawn(function()
-						function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
-						counter = 0
-						while wait(0.1) do
-							frame.TextLabel.TextColor3 = Color3.fromHSV(zigzag(counter),1,1)
-							counter = counter + 0.01
+						while wait() do
+							for h = 0, 1, 1 / 300 do
+								frame.TextLabel.TextColor3 = Color3.fromHSV(h,1,1)
+								wait()
+							end
 						end
 					end)
 				end
@@ -179,13 +180,8 @@ end)
 
 function toggle()
 	enabled = not enabled
-	if enabled then
-		getProperties.Color = Color3.fromRGB(0, 230, 0)
-		getProperties.Text = "[SERVER] Sending Enabled"
-	else
-		getProperties.Color = Color3.fromRGB(230, 0, 0)
-		getProperties.Text = "[SERVER] Sending Disabled"
-	end
+	getProperties.Color = enabled and Color3.fromRGB(0, 230, 0) or Color3.fromRGB(230, 0, 0)
+	getProperties.Text = "[SERVER] Sending " .. (enabled and "Enabled" or "Disabled")
 	StarterGui:SetCore("ChatMakeSystemMessage", getProperties)
 end
 
