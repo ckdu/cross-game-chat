@@ -8,7 +8,7 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
-if not syn_checkcaller and not PROTOSMASHER_LOADED then error'Unsupported exploit.' end
+
 
 if cross_settings then
 	myRoles = cross_settings.myRoles
